@@ -1,0 +1,46 @@
+from django.shortcuts import render, redirect
+from .models import Student, FeeRecord, ExamResult, JointExamResult
+from .forms import StudentForm, FeeRecordForm, ExamResultForm, JointExamResultForm
+
+def home(request):
+    return render(request, 'students/home.html')
+
+def admit_student(request):
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = StudentForm()
+    return render(request, 'students/admit_student.html', {'form': form})
+
+def record_exam(request):
+    if request.method == 'POST':
+        form = ExamResultForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = ExamResultForm()
+    return render(request, 'students/record_exam.html', {'form': form})
+
+def record_fee(request):
+    if request.method == 'POST':
+        form = FeeRecordForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = FeeRecordForm()
+    return render(request, 'students/record_fee.html', {'form': form})
+
+def record_joint_exam(request):
+    if request.method == 'POST':
+        form = JointExamResultForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = JointExamResultForm()
+    return render(request, 'students/record_joint_exam.html', {'form': form})

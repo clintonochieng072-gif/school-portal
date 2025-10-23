@@ -1,22 +1,27 @@
 from django import forms
-from .models import Student, FeeRecord, ExamResult, JointExamResult
+from .models import Student, Exam, JointExam, Remedial, ReamPaper
 
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = '__all__'
+        fields = "__all__"
 
-class FeeRecordForm(forms.ModelForm):
+class ExamForm(forms.ModelForm):
     class Meta:
-        model = FeeRecord
-        fields = '__all__'
+        model = Exam
+        fields = "__all__"
 
-class ExamResultForm(forms.ModelForm):
+class JointExamForm(forms.ModelForm):
     class Meta:
-        model = ExamResult
-        fields = '__all__'
+        model = JointExam
+        fields = "__all__"
 
-class JointExamResultForm(forms.ModelForm):
+class RemedialForm(forms.ModelForm):
     class Meta:
-        model = JointExamResult
-        fields = '__all__'
+        model = Remedial
+        fields = "__all__"
+
+class ReamPaperForm(forms.ModelForm):
+    class Meta:
+        model = ReamPaper
+        fields = "__all__"
